@@ -1,2 +1,2 @@
 # JSLemonadeStand
-Lemonade Stand but for the World Wide Web
+classic educational game Lemonade Stand but with a modern, neumorphic(like) feel.

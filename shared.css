@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("https://fonts.googleapis.com/css?family=Roboto&display=swap")
+}
+
+.title-lem {
+  color: #d2d800;
+}
+
+.robotoFont {
+  font-family: "Roboto", sans-serif;
+}
+
+.title-stand {
+  color: green;
+}
+
+.startrootdiv {
+  position: fixed;
+  /* border: 2px solid black; */
+  height: 96%;
+  width: 50%;
+  left: 25%;
+  right: 25%;
+  overflow: auto;
+  /*background-color: white; */
+  padding: 10px;
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #adadad, 
+  -20px -20px 60px #ffffff;
+}
+
+body {
+  background-color: white;
+}
+
+.defaultbutton {
+  padding: 10px;
+  border-radius: 35px;
+  background-color: lightgray;
+  border: 5px solid green;
+}
+
+.titletext {
+  font-size: 60px;
+}
+
+.headertext {
+  font-size:40px;
+}
+
+.purpleday {
+  color: #8216fc;
+}
+
+.homeScreenCard {
+  left: 10px;
+  right: 10px;
+  height: 200px;
+  overflow: auto;
+}
+
+.sndCard {
+  background-image: url("pics/lemoncard.jpeg") !important;
+  border: 20px solid white;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.defaultCardDynamic {
+  position: static;
+  border-radius: 40px;
+  background-color: #ffffff;
+  box-shadow:  20px 20px 60px #c2c2c2, 
+  -20px -20px 60px #ffffff;
+  word-wrap: break-word;
+}
+
+.homeScreenInfoCard {
+  left: 10px;
+  right: 10px;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.HSCardText {
+  float: bottom;
+  position: relative;
+  width: 95%;
+  color: white;
+  left: 5px;
+  top: 70px;
+}
+
+.HSResearchTextSize {
+  font-size: 30px;
+}
+
+.HSResearchCard {
+  border: 20px solid white;
+  background-image: url("pics/research.png") !important;
+}
+
+.bwidth {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.vertSizableCard {
+  left: 10px;
+  right: 10px;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.stnamehstext {
+  font-size: 50px;
+  left: 50px;
+  position:relative;
+}
