@@ -28,8 +28,65 @@ function startDay(num) {
 }
 
 function startNewDay() {
+  var lsday = localStorage.getItem("day`")
   document.getElementById("rootDIV").innerHTML = "" // Clear Screen
-  document.getElementById("rootDIV").innerHTML = "<div class='defaultCardDynamic vertSizableCard'><h1></div>"
+  document.getElementById("rootDIV").innerHTML = `<div class='defaultCardDynamic vertSizableCard robotoFont'>
+  <div class='vertSizableCard longInsideDCD leftfifty'><h1>LEMONVILLE WEATHER REPORT</h1></div>
+  </div>`
+  /*
+  0 - Sunny
+  1 - Sunny
+  2 - Sunny
+  3 - Hot and Dry
+  4 - Hot and Dry
+  5 - Flood (49/50 -> Rain)
+  6 - Windy
+  7 - Windy
+  8 - Windy
+  9 - Windy
+  10 - Sunny
+  11 - Sunny 
+  12 - Rain
+  13 - Rain
+  14 - Rain
+  15 - Thunderstorms Flood (49/50 -> Rain)
+  */
+  weatherArray = new Array;
+  weatherArray[0] = "sunny"
+  weatherArray[1] = "sunny"
+  weatherArray[2] = "sunny"
+  weatherArray[3] = "hotanddry"
+  weatherArray[4] = "hotanddry"
+  weatherArray[5] = "flood"
+  weatherArray[6] = "windy"
+  weatherArray[7] = "windy"
+  weatherArray[8] = "windy"
+  weatherArray[9] = "windy"
+  weatherArray[10] = "sunny"
+  weatherArray[11] = "sunny"
+  weatherArray[12] = "rain"
+  weatherArray[13] = "rain"
+  weatherArray[14] = "rain"
+  weatherArray[15] = "thunderflood"
+  var todaysweather = ""
+  if(lsday == "1") {
+    todaysweather = weatherArray[0]
+  } else {
+    todaysweathernum = Math.floor( Math.random() * 16)
+    todaysweather = weatherArray[todaysweathernum]
+    if(todaysweather == weatherArray[5]) {
+      var checkForFlood = Math.floor( Math.random() * 50)
+      var checkForFloodMatch = Math.floor ( Math.random() * 50)
+      if(checkForFlood == checkForFloodMatch) {
+        todaysweather = weatherArray[5]
+      } else {
+        todaysweather = weatherArray[12]
+      }
+    }
+  }
+  if(todaysweather == "sunny") {
+    document.getElementById("")
+  }
 }
 
 function spawnSmallHeader() {
@@ -48,10 +105,11 @@ function homeMenu() {
 function InfoBlock() {
   var lsDay = localStorage.getItem("day");
   var lsstandname = localStorage.getItem("standname");
+  var lsmoney = localStorage.getItem("money");
   if(lsstandname == "") {
     lsstandname = "Lemony";
   }
-  return "<div class='defaultCardDynamic homeScreenInfoCard'><h1 class='robotoFont stnamehstext'>" + lsstandname + " Homemade Lemonade</h1><h1 class='robotoFont headertext' style='position:relative; left:50px'><span>Day </span><span class='purpleday'>" + lsDay + "</span></h1></div>";
+  return "<div class='defaultCardDynamic homeScreenInfoCard'><h1 class='robotoFont stnamehstext'>" + lsstandname + " Homemade Lemonade</h1><h1 class='robotoFont headertext' style='position:relative; left:50px'><span>Day </span><span class='purpleday'>" + lsDay + "</span></h1><h2 class='robotoFont leftmoney'>Money: " + lsmoney + "</h2></div>";
 }
 function HSBreak() {
   return "<br><br><br><br>"

@@ -124,3 +124,24 @@ a {
   left: 50px;
   position:relative;
 }
+
+.leftmoney {
+  left: 50px;
+  position: relative;
+}
+
+.neuBackButton {
+  border-radius: 114px;
+  background: #00ff00;
+  box-shadow:  31px 31px 62px #006600, 
+  -31px -31px 62px #00ff00;
+}
+
+.longInsideDCD {
+  width:90% !important;
+}
+
+.leftfifty {
+  left:50px !important;
+  position:relative;
+}
