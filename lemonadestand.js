@@ -28,10 +28,11 @@ function startDay(num) {
 }
 
 function startNewDay() {
-  var lsday = localStorage.getItem("day`")
+  var lsday = localStorage.getItem("day")
   document.getElementById("rootDIV").innerHTML = "" // Clear Screen
-  document.getElementById("rootDIV").innerHTML = `<div class='defaultCardDynamic vertSizableCard robotoFont'>
+  document.getElementById("rootDIV").innerHTML = `<div class='weatherReportCardDynamic defaultCardDynamic vertSizableCard robotoFont'>
   <div class='vertSizableCard longInsideDCD leftfifty'><h1>LEMONVILLE WEATHER REPORT</h1></div>
+  <div id="weatherpic" class='robotoFont leftfifty'></div>
   </div>`
   /*
   0 - Sunny
@@ -49,9 +50,9 @@ function startNewDay() {
   12 - Rain
   13 - Rain
   14 - Rain
-  15 - Thunderstorms Flood (49/50 -> Rain)
+  15 - Thunderstorms Flood (99/100 -> Rain)
   */
-  weatherArray = new Array;
+  var weatherArray = new Array;
   weatherArray[0] = "sunny"
   weatherArray[1] = "sunny"
   weatherArray[2] = "sunny"
@@ -68,11 +69,15 @@ function startNewDay() {
   weatherArray[13] = "rain"
   weatherArray[14] = "rain"
   weatherArray[15] = "thunderflood"
-  var todaysweather = ""
+  weatherArray[16] = "sunny"
+  weatherArray[17] = "sunny"
+  weatherArray[18] = "sunny"
+  weatherArray[19] = "sunny"
+  var todaysweather;
   if(lsday == "1") {
     todaysweather = weatherArray[0]
   } else {
-    todaysweathernum = Math.floor( Math.random() * 16)
+    todaysweathernum = Math.floor( Math.random() * 20)
     todaysweather = weatherArray[todaysweathernum]
     if(todaysweather == weatherArray[5]) {
       var checkForFlood = Math.floor( Math.random() * 50)
@@ -83,10 +88,42 @@ function startNewDay() {
         todaysweather = weatherArray[12]
       }
     }
+    if(todaysweather == weatherArray[15]) {
+      var checkForTF = Math.floor( Math.random() * 100)
+      var checkForTFM = Math.floor( Math.random() * 100)
+      if(checkForTF == checkForTFM) {
+        todaysweather = weatherArray[15]
+      } else {
+        todaysweather = weatherArray[12]
+      }
+    }
+
   }
   if(todaysweather == "sunny") {
-    document.getElementById("")
+    document.getElementById("weatherpic").innerHTML = "<img src='pics/sunny.png' class='weatherimg defaultCardDynamic' /><br><h1>Sunny</h1>";
+    localStorage.setItem("weather","sunny");
   }
+  if(todaysweather == "hotanddry") {
+    document.getElementById("weatherpic").innerHTML = "<img src='pics/hotanddry.png' class='weatherimg defaultCardDynamic' /><br><h1>Hot and Dry</h1>";
+    localStorage.setItem("weather","hotanddry");
+  }
+  if(todaysweather == "flood") {
+    document.getElementById("weatherpic").innerHTML = "<img src='pics/flood.png' class='weatherimg defaultCardDynamic' /><br><h1>Flood!</h1>";
+    localStorage.setItem("weather","flood");
+  }
+  if(todaysweather == "windy") {
+    document.getElementById("weatherpic").innerHTML = "<img src='pics/windy.png' class='weatherimg defaultCardDynamic' /><br><h1>Windy</h1>";
+    localStorage.setItem("weather","windy");
+  }
+  if(todaysweather == "rain") {
+    document.getElementById("weatherpic").innerHTML = "<img src='pics/rain.png' class='weatherimg defaultCardDynamic' /><br><h1>Raining</h1>";
+    localStorage.setItem("weather","rain");
+  }
+  if(todaysweather == "thunderflood") {
+    document.getElementById("weatherpic").innerHTML = "<img src='pics/thunderflood.png' class='weatherimg defaultCardDynamic' /><br><h1>Flood with Thunderstorms</h1>";
+    localStorage.setItem("weather","thunderflood")
+  }
+  document.getElementById("rootDIV").innerHTML += HSBreak() + "<div id='dayInputCard' class='defaultCardDynamic robotoFont vertSizableCard'><h1 class='leftfifty'>DAILY REPORT</h1></div>"
 }
 
 function spawnSmallHeader() {
@@ -108,6 +145,7 @@ function InfoBlock() {
   var lsmoney = localStorage.getItem("money");
   if(lsstandname == "") {
     lsstandname = "Lemony";
+    localStorage.setItem("standname","Lemony");
   }
   return "<div class='defaultCardDynamic homeScreenInfoCard'><h1 class='robotoFont stnamehstext'>" + lsstandname + " Homemade Lemonade</h1><h1 class='robotoFont headertext' style='position:relative; left:50px'><span>Day </span><span class='purpleday'>" + lsDay + "</span></h1><h2 class='robotoFont leftmoney'>Money: " + lsmoney + "</h2></div>";
 }
