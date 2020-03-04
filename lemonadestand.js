@@ -35,22 +35,22 @@ function startNewDay() {
   <div id="weatherpic" class='robotoFont leftfifty'></div>
   </div>`
   /*
-  0 - Sunny
+  0 - Sunny - Max 15 (base) people
   1 - Sunny
   2 - Sunny
-  3 - Hot and Dry
+  3 - Hot and Dry Max 25 (base) people
   4 - Hot and Dry
-  5 - Flood (49/50 -> Rain)
-  6 - Windy
+  5 - Flood (49/50 -> Rain) Max 0 (base & modifiers)
+  6 - Windy Max 10 (base) people
   7 - Windy
   8 - Windy
   9 - Windy
   10 - Sunny
   11 - Sunny 
-  12 - Rain
+  12 - Rain Max 5 (base) people
   13 - Rain
   14 - Rain
-  15 - Thunderstorms Flood (99/100 -> Rain)
+  15 - Thunderstorms Flood (99/100 -> Rain) Max 0 (base & modifiers)
   */
   var weatherArray = new Array;
   weatherArray[0] = "sunny"
@@ -123,7 +123,32 @@ function startNewDay() {
     document.getElementById("weatherpic").innerHTML = "<img src='pics/thunderflood.png' class='weatherimg defaultCardDynamic' /><br><h1>Flood with Thunderstorms</h1>";
     localStorage.setItem("weather","thunderflood")
   }
-  document.getElementById("rootDIV").innerHTML += HSBreak() + "<div id='dayInputCard' class='defaultCardDynamic robotoFont vertSizableCard'><h1 class='leftfifty'>DAILY REPORT</h1></div>"
+  document.getElementById("rootDIV").innerHTML += HSBreak() + `<div id='dayInputCard' class='defaultCardDynamic robotoFont vertSizableCard'><h1 class='leftfifty'>DAILY REPORT</h1>
+  <br><div class='leftfifty'>
+  <p id='sugarprice'>Price to buy sugar is </p><br>
+  <p id='lemonprice'>Price to buy lemons is </p><br>
+  <p id='waterprice'>Price to get water is </p><br>
+  <p id='cupprice'>Price to buy plastic cups are </div></div>`;
+  if(lsday == "1") {
+    document.getElementById("sugarprice").innerHTML += "$0. (Your mom has decided to give you leftover sugar from baking)";
+    document.getElementById("lemonprice").innerHTML += "$0. (Your mom has decided to give you the lemons served with her cocktails)";
+    document.getElementById("waterprice").innerHTML += "$0. (Your house has free running water)";
+    document.getElementById("cupprice").innerHTML += "$0.01. (Your neighbor is charging a pretty penny for each of her plastic cups stolen from her Office Christmas party)";
+    localStorage.setItem("sugarprice","0");
+    localStorage.setItem("waterprice","0");
+    localStorage.setItem("lemonprice","0");
+    localStorage.setItem("cupprice","0.01");
+  } else {
+    var cp = localStorage.getItem("cupprice");
+    var wp = localStorage.getItem("waterprice");
+    var lp = localStorage.getItem("lemonprice");
+    var sp = localStorage.getItem('sugarprice');
+    document.getElementById("sugarprice").innerHTML += "$" + sp + ".";
+    document.getElementById("lemonprice").innerHTML += "$" + lp + ".";
+    document.getElementById("waterprice").innerHTML += "$" + wp + ".";
+    document.getElementById("cupprice").innerHTML += "$" + cp + ".";
+  }
+  document.getElementById("dayInputCard").innerHTML += "<br><br><h2>Amount of sugar to put in 1 cup</h2>"
 }
 
 function spawnSmallHeader() {
