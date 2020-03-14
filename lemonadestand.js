@@ -1,3 +1,9 @@
+var versionNumber = "1.0"
+
+function versionspawn() { // Only use for index version spawning.
+  document.getElementById("versionplace").innerHTML = version(4);
+}
+
 function startGame() {
   document.getElementById("rootDIV").innerHTML = spawnSmallHeader() + `<center><h1 class='robotoFont' style='font-size:40'>Stand Setup</h1><br>
   <span class="robotoFont"><p>Stand Name <input id='standnameinput'></input></p></span><br>
@@ -162,6 +168,7 @@ function homeMenu() {
   document.getElementById("rootDIV").innerHTML = InfoBlock() + HSBreak() + "<a href='javascript:startNewDay()'><div class='homeScreenCard defaultCardDynamic sndCard robotoFont'><div class='HSCardText'><h1>Start Day</h1><h4>Start the day (you cannot come back to this screen once day is started!)</h4></div></div></input>"; // FIRST TWO CARDS
   document.getElementById("rootDIV").innerHTML += HSBreak() + "<div class='homeScreenCard defaultCardDynamic robotoFont HSResearchCard'><div class='HSCardText HSResearchTextSize'><h1>Research</h1></div></div>" // Research Block
   document.getElementById("rootDIV").innerHTML += ResearchUnlock(); // Cards unlocked with research (if any, idk yet)
+  document.getElementById("rootDIV").innerHTML += "<br><br>" + version(6)
 }
 
 function InfoBlock() {
@@ -176,4 +183,18 @@ function InfoBlock() {
 }
 function HSBreak() {
   return "<br><br><br><br>"
+}
+
+function version(sz) {
+  if(sz == 6) {
+    return "<h6 class='robotoFont'>v" + versionNumber + "</h6>";
+  }
+  if(sz == 4) {
+    return "<h4 class='robotoFont'>v" + versionNumber + "</h4>";
+  }
+}
+
+function ResearchUnlock() {
+  return "";
+  console.log("No research tree yet :(.");
 }

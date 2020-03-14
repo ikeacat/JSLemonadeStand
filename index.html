@@ -4,16 +4,16 @@
     <title>Lemonade Stand</title>
     <link href="shared.css" rel="stylesheet" />
   </head>
-  <body>
+  <body onload="versionspawn()">
     <script src="lemonadestand.js"></script>
     <div id="rootDIV" class="startrootdiv">
       <center>
         <h1 class="robotoFont titletext"><span class="title-lem">Lemonade </span><span class="title-stand">Stand</span></h1>
-        <hr />
         <h2 class="robotoFont">Start a game</h2>
         <button class="defaultbutton" onclick="startGame()">Start Game</button>
         <br>
         <p class="robotoFont">This game is VERY much in progress and may change drastically in a rapid amount of time.</p>
+        <h4 id="versionplace"></h4>
       </center>
     </div>
   </body>
