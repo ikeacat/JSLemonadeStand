@@ -98,7 +98,7 @@ body {
 }
 
 .HSResearchCard {
-  border: 20px solid white;
+  border: 20px solid #ff7d7d;
   background-image: url("pics/research.png") !important;
 }
 
