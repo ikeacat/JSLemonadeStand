@@ -4,6 +4,10 @@ function versionspawn() { // Only use for index version spawning.
   document.getElementById("versionplace").innerHTML = version(4);
 }
 
+function toChangelog() {
+  window.location = "changelog.html"
+}
+
 function startGame() {
   document.getElementById("rootDIV").innerHTML = spawnSmallHeader() + `<center><h1 class='robotoFont' style='font-size:40'>Stand Setup</h1><br>
   <span class="robotoFont"><p>Stand Name <input id='standnameinput'></input></p></span><br>
