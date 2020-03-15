@@ -1,4 +1,4 @@
-var versionNumber = "1.0.1"
+var versionNumber = "1.0.5"
 
 function versionspawn() { // Only use for index version spawning.
   document.getElementById("versionplace").innerHTML = version(4);
@@ -168,7 +168,8 @@ function InfoBlock() {
   var lsDay = localStorage.getItem("day");
   var lsstandname = localStorage.getItem("standname");
   var lsmoney = localStorage.getItem("money");
-  if(lsstandname == "") {
+  var lsstandnamenw = lsstandname.replace(/\s+/g, '');
+  if(lsstandnamenw == "") {
     lsstandname = "Lemony";
     localStorage.setItem("standname","Lemony");
   }
