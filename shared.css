@@ -35,7 +35,7 @@ body {
   background-color: white;
 }
 
-.defaultbutton {
+.deprecatedButton {
   padding: 10px;
   border-radius: 35px;
   background-color: lightgray;
@@ -66,6 +66,11 @@ body {
   border: 20px solid white;
   background-repeat: no-repeat;
   background-size: auto;
+  transition: all 0.3s ease 0s;
+}
+
+.sndCard:hover {
+  border: 20px solid #6df765;
 }
 
 .defaultCardDynamic {
@@ -98,8 +103,13 @@ body {
 }
 
 .HSResearchCard {
-  border: 20px solid #ff7d7d;
+  border: 20px solid white;
   background-image: url("pics/research.png") !important;
+  transition: all 0.3s ease 0s;
+}
+
+.HSResearchCard:hover {
+  border-color: #ff7d7d;
 }
 
 .bwidth {
@@ -151,4 +161,24 @@ a {
 
 .weatherReportCardDynamic {
   width: 880px !important;
+}
+
+.neuButton {
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 50px;
+  border: solid white;
+  background: #ffffff;
+  box-shadow:  10px 10px 30px #bababa, 
+  -10px -10px 30px #ffffff;
+  transition: all 0.3s ease 0s;
+}
+
+.neuButton:hover {
+  border-radius: 50px;
+  background-color: #6df765 ;
+  border: solid #6df765;
+  box-shadow:  10px 10px 30px #bababa, 
+  -10px -10px 30px #ffffff;
 }
