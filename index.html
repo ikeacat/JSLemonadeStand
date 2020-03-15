@@ -6,15 +6,20 @@
   </head>
   <body onload="versionspawn()">
     <script src="lemonadestand.js"></script>
-    <div id="rootDIV" class="startrootdiv">
-      <center>
-        <h1 class="robotoFont titletext"><span class="title-lem">Lemonade </span><span class="title-stand">Stand</span></h1>
-        <button class="neuButton" onclick="startGame()">Start Game</button>
-        <button class="neuButton" onclick="toChangelog()">Changelog</button>
+    <div id="rootDIV">
+      <div class="defaultCardDynamic homeScreenInfoCard robotoFont">
+        <h1 class="leftfifty titletext"><span class='title-lem'>Lemonade </span><span class='title-stand'>Stand</span></h1>
         <br>
-        <p class="robotoFont">This game is VERY much in progress and may change drastically in a rapid amount of time.</p>
-        <h4 id="versionplace"></h4>
-      </center>
+        <center><div class="defaultCardDynamic homeScreenInfoCard robotoFont TSButtonBar">
+          <p style='margin-left: 20px; margin-right: 5px; margin-top: 19px'>Navigation</p>
+          <button class='neuButton' style='margin: 5px' onclick='startGame()'>Start Game</button>
+          <button class='neuButton' style='margin: 5px' onclick='toChangelog()'>Changelog</button>
+        </div></center>
+        <h4 id='versionplace' class='leftfifty'></h4>
+        <br>
+        <p class='leftfifty'>This game IS VERY in progress! This may change drastically in a very short period of time.</p>
+        <br>
+      </div>
     </div>
   </body>
 </html>

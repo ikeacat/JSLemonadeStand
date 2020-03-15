@@ -145,9 +145,9 @@ function startNewDay() {
     document.getElementById("ppl").innerHTML += "$" + lsppl + ".";
   }
   document.getElementById("dayInputCard").innerHTML += `<br><h2 class='leftfifty'>Amount of cups to make</h2>
-  <input id='amountofcups' class='leftfifty'></input><br>
+  <input id='amountofcups' class='leftfifty' onkeypress="return isNumberKey(event)"></input><br>
   <h2 class='leftfifty'>Price of a cup.</h2>
-  <input id='priceoflem' class='leftfifty'></input><br><br>
+  <input id='priceoflem' class='leftfifty' onkeypress="return isNumberKey(event)"></input><br><br>
   <button class='neuButton leftfifty'>Ok</button><br><br>`
 }
 
@@ -156,7 +156,6 @@ function spawnSmallHeader() {
 }
 
 function homeMenu() {
-  document.getElementById("rootDIV").classList.remove("startrootdiv") // Free up space
   document.getElementById("rootDIV").innerHTML = "" // Clear HTML
   document.getElementById("rootDIV").innerHTML = InfoBlock() + HSBreak() + "<a href='javascript:startNewDay()'><div class='homeScreenCard defaultCardDynamic sndCard robotoFont'><div class='HSCardText'><h1>Start Day</h1><h4>Start the day (you cannot come back to this screen once day is started!)</h4></div></div></input>"; // FIRST TWO CARDS
   document.getElementById("rootDIV").innerHTML += HSBreak() + "<div class='homeScreenCard defaultCardDynamic robotoFont HSResearchCard'><div class='HSCardText HSResearchTextSize'><h1>Research</h1></div></div>" // Research Block
@@ -191,4 +190,11 @@ function version(sz) {
 function ResearchUnlock() {
   console.log("No research tree yet :(.");
   return "";
+}
+
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
 }
