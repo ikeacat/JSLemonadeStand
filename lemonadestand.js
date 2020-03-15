@@ -9,10 +9,10 @@ function toChangelog() {
 }
 
 function startGame() {
-  document.getElementById("rootDIV").innerHTML = spawnSmallHeader() + `<center><h1 class='robotoFont' style='font-size:40'>Stand Setup</h1><br>
+  document.getElementById("rootDIV").innerHTML = '<div class="defaultCardDynamic homeScreenInfoCard robotoFont"><div class="leftfifty">' + spawnSmallHeader() + "</div>" + `<div class='leftfifty'><h1 class='robotoFont' style='font-size:40'>Stand Setup</h1><br>
   <span class="robotoFont"><p>Stand Name <input id='standnameinput'></input></p></span><br>
   <p class="robotoFont" style="color:red;">WARNING!!! This game does not yet save. Sorry bout that.</p><br>
-  <button class="neuButton robotoFont" onclick="startDay(0)">Save & Start Game</button></center>`;
+  <button class="neuButton robotoFont" onclick="startDay(0)">Save & Start Game</button></div><br><br></div>`;
   console.log("Loaded new game.");
 }
 
@@ -24,7 +24,7 @@ function startDay(num) {
     var standnameval = document.getElementById("standnameinput").value;
     localStorage.setItem("standname",standnameval);
     localStorage.setItem("ppl","0")
-    document.getElementById("rootDIV").innerHTML = spawnSmallHeader() + `<div class="robotoFont"><p class='headertext'>Intro</p>
+    document.getElementById("rootDIV").innerHTML = '<div class="defaultCardDynamic homeScreenInfoCard robotoFont"><div class="leftfifty">' + spawnSmallHeader() + "</div>" + `<div class='leftfifty'><p class='headertext'>Intro</p>
     <p>Welcome to Lemonsville, California!</p><br>
     <p>At the start, you will have to make a few decisions a day (you can unlock more through research):<br></p>
     <ul>
@@ -33,8 +33,8 @@ function startDay(num) {
     </ul>
     <br>
     <p>Your mom has decided to provide you with 50 cents to start out your business.</p>
-    <p>For now... Thats it!</p><br>
-    <button class='neuButton' onclick='homeMenu()'>Alright...</button></div>`;
+    <p>For now... Thats it! Good luck.</p><br>
+    <button class='neuButton' onclick='homeMenu()'>Alright...</button></div><br><br></div>`;
   }
 }
 
@@ -152,7 +152,7 @@ function startNewDay() {
 }
 
 function spawnSmallHeader() {
-  return "<center><h1 class='robotoFont'><span class='title-lem'>Lemonade </span><span class='title-stand'>Stand</span></h1><hr /></center>";
+  return "<h1 class='robotoFont'><span class='title-lem'>Lemonade </span><span class='title-stand'>Stand</span></h1>";
 }
 
 function homeMenu() {
