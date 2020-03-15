@@ -182,3 +182,11 @@ a {
   box-shadow:  10px 10px 30px #bababa, 
   -10px -10px 30px #ffffff;
 }
+
+.TSButtonBar {
+  width: 95% !important;
+  vertical-align: center;
+  text-align: left;
+  display: flex !important;
+  padding: 5px;
+}
