@@ -190,3 +190,23 @@ a {
   display: flex !important;
   padding: 5px;
 }
+
+.inputbox {
+  width: initial;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+.inputbox:hover {
+  box-shadow:  10px 10px 30px #bababa, 
+  -10px -10px 30px #ffffff;
+}
+.inputbox:focus {
+  box-shadow:  10px 10px 30px #bababa, 
+  -10px -10px 30px #ffffff;
+  border: 1px solid lightgray;
+
+}

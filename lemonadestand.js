@@ -1,4 +1,4 @@
-var versionNumber = "1.0.5"
+var versionNumber = "1.1"
 
 function versionspawn() { // Only use for index version spawning.
   document.getElementById("versionplace").innerHTML = version(4);
@@ -145,9 +145,9 @@ function startNewDay() {
     document.getElementById("ppl").innerHTML += "$" + lsppl + ".";
   }
   document.getElementById("dayInputCard").innerHTML += `<br><h2 class='leftfifty'>Amount of cups to make</h2>
-  <input id='amountofcups' class='leftfifty' onkeypress="return isNumberKey(event)"></input><br>
+  <input id='amountofcups' class='leftfifty inputbox' onkeypress="return isNumberKey(event)"></input><br>
   <h2 class='leftfifty'>Price of a cup.</h2>
-  <input id='priceoflem' class='leftfifty' onkeypress="return isNumberKey(event)"></input><br><br>
+  <input id='priceoflem' class='leftfifty inputbox' onkeypress="return isNumberKey(event)"></input><br><br>
   <button class='neuButton leftfifty'>Ok</button><br><br>`
 }
 
