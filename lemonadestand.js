@@ -96,26 +96,26 @@ function startNewDay() {
   if(lsday == "1") {
     todaysweather = weatherArray[0]
   } else {
-    todaysweathernum = Math.floor( Math.random() * 20)
+    todaysweathernum = randomRange(0, 19)
     todaysweather = weatherArray[todaysweathernum]
-    if(todaysweather == weatherArray[5]) {
-      var checkForFlood = Math.floor( Math.random() * 50)
-      var checkForFloodMatch = Math.floor ( Math.random() * 50)
+    if(todaysweather == weatherArray[5]) { // Flood
+      var checkForFlood = randomRange(0, 50);
+      var checkForFloodMatch = randomRange(0, 50);
       if(checkForFlood == checkForFloodMatch) {
         todaysweather = weatherArray[5]
       } else {
         todaysweather = weatherArray[12]
       }
-    }
-    if(todaysweather == weatherArray[15]) {
-      var checkForTF = Math.floor( Math.random() * 100)
-      var checkForTFM = Math.floor( Math.random() * 100)
+    } else if(todaysweather == weatherArray[15]) { // Thunderflood
+      var checkForTF = randomRange(0, 100)
+      var checkForTFM = randomRange(0, 100)
       if(checkForTF == checkForTFM) {
         todaysweather = weatherArray[15]
       } else {
         todaysweather = weatherArray[12]
       }
     }
+    
 
   }
   if(todaysweather == "sunny") {
@@ -206,4 +206,8 @@ function isNumberKey(evt){
     if (charCode > 31 && (charCode < 48 || charCode > 57))
         return false;
     return true;
+}
+
+function randomRange(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
