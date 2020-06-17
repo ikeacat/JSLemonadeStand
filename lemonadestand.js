@@ -1,4 +1,4 @@
-var versionNumber = "1.1"
+const versionNumber = "1.1"
 
 function versionspawn() { // Only use for index version spawning.
   document.getElementById("versionplace").innerHTML = version(4);
@@ -161,7 +161,9 @@ function startNewDay() {
 }
 
 function processDailyInput() {
-  let cupsToMake = document.getElementById("amountofcups")
+  let cupsToMake = document.getElementById("amountofcups").value;
+  let sellPriceOfLem = document.getElementById("priceoflem").value;
+  let priceToMake = document.getElementById("")
 }
 
 function spawnSmallHeader() {
@@ -203,7 +205,7 @@ function ResearchUnlock() {
 
 function isNumberKey(evt){
     var charCode = (evt.which) ? evt.which : evt.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode != 190))
         return false;
     return true;
 }
