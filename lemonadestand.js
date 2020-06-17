@@ -1,4 +1,4 @@
-const versionNumber = "1.1"
+const versionNumber = "1.0.7"
 
 function versionspawn() { // Only use for index version spawning.
   document.getElementById("versionplace").innerHTML = version(4);
