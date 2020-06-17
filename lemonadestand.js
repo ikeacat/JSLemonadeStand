@@ -1,4 +1,4 @@
-var versionNumber = "1.0.5"
+const versionNumber = "1.0.7"
 
 function versionspawn() { // Only use for index version spawning.
   document.getElementById("versionplace").innerHTML = version(4);
@@ -10,7 +10,7 @@ function toChangelog() {
 
 function startGame() {
   document.getElementById("rootDIV").innerHTML = '<div class="defaultCardDynamic homeScreenInfoCard robotoFont"><div class="leftfifty">' + spawnSmallHeader() + "</div>" + `<div class='leftfifty'><h1 class='robotoFont' style='font-size:40'>Stand Setup</h1><br>
-  <span class="robotoFont"><p>Stand Name <input id='standnameinput'></input></p></span><br>
+  <span class="robotoFont"><p>Stand Name <input id='standnameinput' class='inputbox'></input></p></span><br>
   <p class="robotoFont" style="color:red;">WARNING!!! This game does not yet save. Sorry bout that.</p><br>
   <button class="neuButton robotoFont" onclick="startDay(0)">Save & Start Game</button></div><br><br></div>`;
   console.log("Loaded new game.");
@@ -22,7 +22,14 @@ function startDay(num) {
     localStorage.setItem("day","1")
     localStorage.setItem("money","0.50")
     var standnameval = document.getElementById("standnameinput").value;
-    localStorage.setItem("standname",standnameval);
+    var lsstandnamenw = standnameval.replace(/\s+/g, '');
+    if(lsstandnamenw == "") {
+      standnameval = "Lemony";
+      localStorage.setItem("standname","Lemony");
+    } else {
+      var nlssn = standnameval.charAt(0).toUpperCase() + standnameval.slice(1)
+      localStorage.setItem('standname',nlssn)
+    }
     localStorage.setItem("ppl","0")
     document.getElementById("rootDIV").innerHTML = '<div class="defaultCardDynamic homeScreenInfoCard robotoFont"><div class="leftfifty">' + spawnSmallHeader() + "</div>" + `<div class='leftfifty'><p class='headertext'>Intro</p>
     <p>Welcome to Lemonsville, California!</p><br>
@@ -136,7 +143,7 @@ function startNewDay() {
     localStorage.setItem("weather","thunderflood")
   }
   document.getElementById("rootDIV").innerHTML += HSBreak() + `<div id='dayInputCard' class='defaultCardDynamic robotoFont vertSizableCard'><h1 class='leftfifty'>DAILY REPORT</h1>
-  <br><div class='leftfifty'>
+  <div class='leftfifty'>
   <p id="ppl">Price per glass of lemonade is </p>
   </div></div>`;
   if(lsday == "1") {
@@ -144,11 +151,19 @@ function startNewDay() {
   } else {
     document.getElementById("ppl").innerHTML += "$" + lsppl + ".";
   }
-  document.getElementById("dayInputCard").innerHTML += `<br><h2 class='leftfifty'>Amount of cups to make</h2>
-  <input id='amountofcups' class='leftfifty' onkeypress="return isNumberKey(event)"></input><br>
+  let money = localStorage.getItem("money");
+  document.getElementById("dayInputCard").innerHTML += "<p class='leftfifty'>You have $" + money + " in your account.</p>"
+  document.getElementById("dayInputCard").innerHTML += `<h2 class='leftfifty'>Amount of cups to make</h2>
+  <input id='amountofcups' class='leftfifty inputbox' onkeypress="return isNumberKey(event)"></input><br>
   <h2 class='leftfifty'>Price of a cup.</h2>
-  <input id='priceoflem' class='leftfifty' onkeypress="return isNumberKey(event)"></input><br><br>
-  <button class='neuButton leftfifty'>Ok</button><br><br>`
+  <input id='priceoflem' class='leftfifty inputbox' onkeypress="return isNumberKey(event)"></input><br><br>
+  <button class='neuButton leftfifty' onclick='processDailyInput()'>Ok</button><br><br>`
+}
+
+function processDailyInput() {
+  let cupsToMake = document.getElementById("amountofcups").value;
+  let sellPriceOfLem = document.getElementById("priceoflem").value;
+  let priceToMake = document.getElementById("")
 }
 
 function spawnSmallHeader() {
@@ -167,11 +182,7 @@ function InfoBlock() {
   var lsDay = localStorage.getItem("day");
   var lsstandname = localStorage.getItem("standname");
   var lsmoney = localStorage.getItem("money");
-  var lsstandnamenw = lsstandname.replace(/\s+/g, '');
-  if(lsstandnamenw == "") {
-    lsstandname = "Lemony";
-    localStorage.setItem("standname","Lemony");
-  }
+  
   return "<div class='defaultCardDynamic homeScreenInfoCard'><h1 class='robotoFont stnamehstext'>" + lsstandname + " Homemade Lemonade</h1><h1 class='robotoFont headertext' style='position:relative; left:50px'><span>Day </span><span class='purpleday'>" + lsDay + "</span></h1><h2 class='robotoFont leftmoney'>Money: " + lsmoney + "</h2></div>";
 }
 function HSBreak() {
@@ -194,7 +205,7 @@ function ResearchUnlock() {
 
 function isNumberKey(evt){
     var charCode = (evt.which) ? evt.which : evt.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode != 190))
         return false;
     return true;
 }
