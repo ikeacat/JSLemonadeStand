@@ -5,3 +5,8 @@
 h3 {
 	font-size: 30px;
 }
+
+.neuButton.changelog {
+	box-shadow: none;
+	background-color: whitesmoke;
+}
